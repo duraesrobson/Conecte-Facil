@@ -1,0 +1,902 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('conteudo.css');
+@import url('cadastro.css');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+a .btn-inscrever{
+	background-color: #4CAF50; /* Cor de fundo (verde) */
+    border: none; /* Sem bordas */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Sem sublinhado */
+    display: inline-block; /* Display inline */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px 0; /* Margem em cima e embaixo */
+    cursor: pointer; /* Cursor tipo "mãozinha" */
+    border-radius: 5px; /* Cantos arredondados */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+
+	--light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--red: #DB504A;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body.dark {
+	--light: #0C0C1E;
+	--grey: #060714;
+	--dark: #FBFBFB;
+}
+
+body {
+	background: var(--grey);
+	
+}
+
+
+
+
+
+/* SIDEBAR */
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 100%;
+	background: var(--light);
+	z-index: 2000;
+	font-family: var(--lato);
+	transition: .3s ease;
+	overflow-x: hidden;
+	scrollbar-width: none;
+}
+
+.bxs-log-out-circle{
+	font-size: 20px;
+}
+
+
+
+#sidebar::--webkit-scrollbar {
+	display: none;
+}
+#sidebar.hide {
+	width: 60px;
+}
+#sidebar .brand {
+	font-size: 24px;
+	font-weight: 700;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	color: var(--blue);
+	position: sticky;
+	top: 0;
+	left: 0;
+	background: var(--light);
+	z-index: 500;
+	padding-bottom: 20px;
+	box-sizing: content-box;
+}
+#sidebar .brand .bx {
+	min-width: 60px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+#sidebar img {
+    scale: 70%;              /* Escala a imagem */       /* Adiciona margem superior automática para empurrar a imagem para o fundo */
+    margin-left: -40px;
+	margin-top: 120px;    /* Ajusta o espaço abaixo da imagem, se necessário */
+}
+
+#sidebar .side-menu {
+	width: 100%;
+	margin-top: 48px;
+}
+#sidebar .side-menu li {
+	height: 48px;
+	background: transparent;
+	margin-left: 6px;
+	border-radius: 48px 0 0 48px;
+	padding: 4px;
+}
+#sidebar .side-menu li.active {
+	background: var(--grey);
+	position: relative;
+}
+#sidebar .side-menu li.active::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li a {
+	width: 100%;
+	height: 100%;
+	background: var(--light);
+	display: flex;
+	align-items: center;
+	border-radius: 48px;
+	font-size: 16px;
+	color: var(--dark);
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+#sidebar .side-menu.top li.active a {
+	color: var(--blue);
+}
+
+#sidebar .side-menu li.active a {
+	color: var(--blue);
+}
+#sidebar.hide .side-menu li a {
+	width: calc(48px - (4px * 2));
+	transition: width .3s ease;
+}
+#sidebar .side-menu li a.logout {
+	color: var(--red);
+}
+#sidebar .side-menu.top li a:hover {
+	color: var(--blue);
+}
+#sidebar .side-menu li a .bx {
+	min-width: calc(60px  - ((4px + 6px) * 2));
+	display: flex;
+	justify-content: center;
+}
+/* SIDEBAR */
+
+
+
+
+
+/* CONTENT */
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	top: 50px;
+	left: 280px;
+	transition: .3s ease;
+}
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+
+
+
+/* NAVBAR */
+
+
+#content nav {
+	height: 56px;
+	width: 100vw;
+	background: var(--light);
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	font-family: var(--lato);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3000;
+}
+#content nav::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	bottom: -40px;
+	left: 0;
+	border-radius: 50%;
+	box-shadow: -20px -20px 0 var(--light);
+}
+#content nav a {
+	color: var(--dark);
+}
+#content nav .bx.bx-menu {
+	cursor: pointer;
+	color: var(--dark);
+	transform: scale(190%);
+}
+#content nav .nav-link {
+	font-size: 16px;
+	transition: .3s ease;
+}
+#content nav .nav-link:hover {
+	color: var(--blue);
+}
+#content nav form {
+	max-width: 400px;
+	width: 100%;
+	margin-right: auto;
+}
+#content nav form .form-input {
+	display: flex;
+	align-items: center;
+	height: 36px;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+#content nav form .form-input input {
+	flex-grow: 1;
+	padding: 0 16px;
+	height: 100%;
+	border: none;
+	background: var(--grey);
+	border-radius: 36px 0 0 36px;
+	outline: none;
+	width: 100%;
+	color: var(--dark);
+}
+
+
+
+
+#content nav form .form-input button {
+	width: 36px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--blue);
+	color: var(--light);
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 0 36px 36px 0;
+	cursor: pointer;
+}
+
+#content nav .profile img {
+	width: 36px;
+	height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/* Estilização do menu suspenso da foto de perfil */
+.profile {
+    position: relative;
+	margin-right: 30px;
+}
+
+#profileMenu {
+    display: none; /* Esconde o menu inicialmente */
+    position: absolute;
+    top: 50px; /* Ajuste para ficar abaixo da foto de perfil */
+    right: 0; /* Alinha à direita do container */
+    background-color: var(--light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    width: 150px;
+}
+
+#profileMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#profileMenu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+#profileMenu ul li a {
+    text-decoration: none;
+    color: var(--dark);
+    display: block;
+}
+
+#profileMenu ul li:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+#profileMenu ul li a:hover {
+    color: white;
+}
+
+/* Estilizando a foto de perfil na navbar */
+.profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* NAVBAR */
+
+
+
+
+
+/* MAIN */
+#content main {
+	width: 100%;
+	top: 60px;
+	padding: 36px 24px;
+	font-family: var(--poppins);
+	height: auto;
+	overflow-y: auto;
+}
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+#content main .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #172E66;
+	
+}
+#content main .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+#content main .head-title .left .breadcrumb li {
+	color: var(--dark);
+}
+#content main .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+#content main .head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
+
+
+
+#content main .box-info {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 36px;
+	margin-top: 36px;
+}
+
+.curso-conteudo{
+	padding: 20px;
+	text-align: center;
+}
+.curso-conteudo h3{
+font-size: 50px;
+line-height: 60px;
+color: #172E66;
+}
+
+.curso-conteudo h2{
+	text-align: left;
+	margin-top: 30px;
+	}
+.curso-conteudo p{
+	text-align: left;
+	margin-top: 20px;
+	padding: 5px;
+}
+
+#content main .box-info li {
+	padding: 24px;
+	background: var(--light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+/* Efeito de hover */
+#content main .box-info li:hover {
+    transform: scale(1.02); /* Aumenta ligeiramente o tamanho do card */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao card */
+}
+
+
+
+#content main .box-info li .bx {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bx img {
+    min-width: 88.71px; /* Define a largura máxima da imagem */
+    height: 150px; /* Mantém a proporção da imagem */
+    display: block; /* Remove o espaço abaixo da imagem */
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+/* Estilo geral do formulário de suporte */
+.support-form {
+    max-width: 500px; /* Largura máxima do formulário */
+    margin: 20px auto; /* Centraliza o formulário horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda do formulário */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #f9f9f9; /* Cor de fundo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra do formulário */
+}
+
+/* Estilo do rótulo */
+.support-form label {
+    display: block; /* Exibe o rótulo como bloco */
+    margin-bottom: 10px; /* Espaçamento abaixo do rótulo */
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilo da área de texto */
+.support-form textarea {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda da área de texto */
+    border-radius: 5px; /* Cantos arredondados */
+    resize: none; /* Impede o redimensionamento da área de texto */
+}
+
+/* Estilo do botão */
+.support-form button {
+    display: block; /* Exibe o botão como bloco */
+    width: 100%; /* Largura total do botão */
+    padding: 10px; /* Espaçamento interno */
+    margin-top: 15px; /* Espaçamento acima do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Estilo do botão ao passar o mouse */
+.support-form button:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo da mensagem de confirmação */
+.support-form p {
+    margin-top: 15px; /* Espaçamento acima da mensagem */
+    color: #28a745; /* Cor verde para mensagens de sucesso */
+    font-weight: bold; /* Negrito */
+}
+
+
+
+.btn-primary{
+	background-color: #172E66;
+	font-size: 17px;
+	padding: 5px;
+	color: white;
+}
+
+.btn-senha{
+	background-color: #172E66;
+	font-size: 17px;
+	padding: 5px;
+}
+
+.btn-usuario{
+	background-color: #172E66;
+	font-size: 17px;
+	padding: 5px;
+
+}
+
+/* css do link dentro do card */
+
+/* Estilos do botão de inscrição */
+.btn-inscrever {
+    background-color: #4CAF50; /* Cor de fundo (verde) */
+    border: none; /* Sem bordas */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Sem sublinhado */
+    display: inline-block; /* Display inline */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px 0; /* Margem em cima e embaixo */
+    cursor: pointer; /* Cursor tipo "mãozinha" */
+    border-radius: 5px; /* Cantos arredondados */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+/* Mudança de cor ao passar o mouse (hover) */
+.btn-inscrever:hover {
+    background-color: #45a049; /* Cor um pouco mais escura */
+}
+
+/* Efeito de clique */
+.btn-inscrever:active {
+    background-color: #3e8e41;
+    transform: scale(0.98); /* Leve redução de tamanho ao clicar */
+}
+
+/* Estilos do botão de inscrição */
+
+
+.card-link {
+    display: block; /* Faz o link ocupar todo o espaço do card */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+    color: inherit; /* Mantém a cor do texto igual ao do card */
+    border-radius: 20px; /* Adiciona bordas arredondadas ao link */
+    overflow: hidden; /* Evita que conteúdo transborde o card */
+}
+
+/* css do link dentro do card */
+#content main .box-info li:nth-child(1) .bx {
+	overflow: hidden;
+	min-width: 88.71px; /* Define a largura máxima da imagem */
+    height: 150px; /* Mantém a proporção da imagem */
+    display: block; /* Remove o espaço abaixo da imagem */
+	border-radius: 10px;
+	object-fit: cover;
+	
+}
+#content main .box-info li:nth-child(2) .bx {
+	overflow: hidden;
+	min-width: 88.71px; /* Define a largura máxima da imagem */
+    height: 150px; /* Mantém a proporção da imagem */
+    display: block; /* Remove o espaço abaixo da imagem */
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+#content main .box-info li:nth-child(2) .bx img {
+    object-position: -35px center; /* Ajuste de acordo com sua necessidade */
+}
+
+
+#content main .box-info li .text h3 {
+	font-size: 24px;
+	font-weight: 600;
+	color: #172E66;
+}
+#content main .box-info li .text p {
+	color: var(--dark);	
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fixa na tela */
+    z-index: 1; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+	align-self: center;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Permite rolagem se necessário */
+    background-color: rgb(0, 0, 0); /* Fundo preto */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto com opacidade */
+}
+
+/* Conteúdo do Modal de inscricao */
+.modal-content {
+	transform: translate(50%, 50%); 
+    background-color: #fefefe; /* Cor de fundo do conteúdo */
+    margin: 15% auto; /* Margem centralizada */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #888; /* Borda */
+    width: 40%; /* Largura do conteúdo */
+    text-align: center; /* Alinhamento do texto */
+	justify-content: center;
+}
+.custom-list a {
+    text-decoration: none;
+    color: #0056b3; /* Define uma cor para o link */
+}
+
+.custom-list a:hover {
+    color: #29bb29; /* Cor diferente ao passar o mouse */
+    text-decoration: underline; /* Decoração para hover, opcional */
+}
+/* Estilo do botão de fechar */
+.close {
+    color: #aaa; /* Cor do botão */
+    float: right; /* Alinhado à direita */
+    font-size: 28px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cor ao passar o mouse */
+    text-decoration: none; /* Sem sublinhado */
+    cursor: pointer; /* Cursor tipo "mãozinha" */
+}
+
+/* Conteúdo do Modal de inscricao */
+
+/* config da conta */
+.account-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-info ul li {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.account-info ul li .edit-icon {
+    cursor: pointer;
+    color: var(--blue);
+    font-size: 20px;
+}
+
+.delete-account {
+    background-color: var(--red);
+    color: var(--light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.delete-account:hover {
+    background-color: darkred;
+}
+
+
+
+/* config da conta */
+
+
+
+.modal-sucesso {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* PAGINATION*/
+
+/* Estilos de container para a paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Margem para afastar do conteúdo acima */
+}
+
+/* Estilos dos itens da paginação */
+.pagination a {
+    color: #555; /* Cor do texto dos links */
+    padding: 10px 15px; /* Espaçamento interno */
+    margin: 0 5px; /* Espaçamento externo entre os botões */
+    text-decoration: none; /* Remove sublinhado dos links */
+    background-color: #f1f1f1; /* Cor de fundo padrão */
+    border: 1px solid #ddd; /* Borda dos botões */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transições suaves */
+}
+
+/* Estilos ao passar o mouse sobre os itens */
+.pagination a:hover {
+    background-color: #007bff; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo para a página ativa */
+.pagination a.active {
+    background-color: #007bff; /* Cor de fundo para a página ativa */
+    color: white; /* Cor do texto na página ativa */
+    border: 1px solid #007bff; /* Borda da página ativa */
+}
+/* MAIN */
+/* CONTENT */
+
+
+
+@media screen and (max-width: 768px) {
+
+	
+	#content main .box-info li:nth-child(2) .bx img {
+		object-position: 0px center;
+		min-width: 100%;
+	}
+
+	#content main .box-info li:nth-child(1) .bx img {
+		object-position: 0px -50px;
+
+	}
+
+	#content main .box-info li:nth-child(2) .bx{
+		min-width: 100%;
+	}
+
+	
+
+
+
+
+	.profile {
+		
+		margin-right: 0px;
+	}
+
+	.account-info ul li {
+		display: block;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 12px;
+		font-size: 14px;
+	}
+
+	h1.custom-header-big{
+		font-size: 1.4rem;
+		text-align: center;
+	}
+	
+	.breadcrumb li a {
+		font-size: 0.8rem; /* Ajuste o valor conforme necessário */
+	}
+	.breadcrumb li p {
+		font-size: 0.8rem; /* Ajuste o valor conforme necessário */
+	}
+	#content main .head-title .left h1{
+		font-size: 1.4rem;
+	}
+
+	#content main .head-title .left .breadcrumb{
+		font-size: 1rem;
+	}
+/*SIDEBAR MOB*/
+#sidebar.hide ~ #content {
+	width: 100%;
+	left: 0px;
+}
+	#sidebar.hide {
+		width: 0px;
+	}
+
+	li.active a{
+		font-size: 90px;
+	}
+
+	#sidebar.active {
+		width: 100%;
+	}
+	#sidebar .side-menu{
+		width: 100%;
+		margin-top: 60px;
+		align-items: center;
+	}
+
+	#sidebar img {
+		scale: 60%;              /* Escala a imagem */       /* Adiciona margem superior automática para empurrar a imagem para o fundo */
+		align-self: center;
+		margin-top: 120px;    /* Ajusta o espaço abaixo da imagem, se necessário */
+	}
+	/*SIDEBAR MOB*/
+	
+	#content {	
+		top: 5rem;
+	}
+
+
+	#content main .box-info li{
+		flex-direction: column;
+	padding:10px;
+   
+	}
+	.box-info li {
+        flex-direction: column; /* Alinha a imagem em cima do texto */
+        align-items: center; /* Centraliza o conteúdo */
+    }
+
+	.box-info .bx {
+        min-width: 800px; /* Faz a caixa da imagem ocupar toda a largura */
+        max-width: 300px; /* Largura máxima da imagem */
+        margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+    }
+
+	.box-info .bx img {
+        width: 100%; /* A imagem ocupa toda a largura da caixa */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 8px; /* Opcional: bordas arredondadas */
+    }
+
+	.box-info .text {
+        text-align: center; /* Centraliza o texto */
+    }
+
+	#content main .box-info li:nth-child(1) .bx {
+		overflow: hidden;
+		min-width: 300px;
+		min-height: 190px;
+		display: flex;
+		border-radius: 10px;
+		object-fit: cover;
+		object-position: center -50px;
+	}
+	
+
+
+	
+}
+
+
+

@@ -1,0 +1,63 @@
+footer {
+    background-color: white;
+    max-height: 100px; /* Define uma altura máxima para o footer */
+    padding: 10px 0; /* Adiciona um padding para deixar o conteúdo centralizado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footerimg {
+    max-height: 50px; /* Define a altura máxima para a logo */
+    width: auto; /* Mantém a proporção da logo */
+}
+
+#footer_items {
+    display: flex;
+    justify-content: center;
+    padding: 0px 8% 0px 8%;
+    align-items: center;
+}
+
+#copyright {
+    color: var(--color-neutral-1);;
+    font-weight: 500;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    #footer_items {
+        flex-direction: column;
+        gap: 20px;
+        scale: 60%;
+    }
+
+    #footer {
+        background-color: white;
+        padding: 10px 0; /* Adiciona um padding para deixar o conteúdo centralizado */
+        display: flex;
+        padding: 0px 2% 0px 2%;
+        width: 100%;
+     
+    }
+
+    footer {
+      width: 100%;
+        padding: 4px 0; /* Adiciona um padding para deixar o conteúdo centralizado */
+        
+    }
+
+    #copyright {
+        color: var(--color-neutral-1);;
+        font-weight: 500;
+        align-items: center;
+        width: 200px;
+    }
+
+    .footerimg {
+        max-height: 50px; /* Define a altura máxima para a logo */
+        width: 140px; /* Mantém a proporção da logo */
+        margin-left: 100px;
+    }
+}

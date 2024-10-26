@@ -1,0 +1,165 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120vh;
+}
+
+#dishes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    grid-gap: 35px; /* Espaçamento entre os cards */
+    margin-top: 32px;
+}
+
+
+.dish {
+    display: flex;
+    flex-direction: row; /* Altera a direção para linha */
+    align-items: center;
+    border-radius: 20px;
+    gap: 25px;
+    margin-top: 20px;
+    width: 600px;
+    padding: 20px;
+    background-color: var(--color-neutral-0);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.dish-image {
+    max-width: 100px; /* Define a largura máxima da imagem */
+    min-height: 200px; /* Mantém a proporção da imagem */
+    display: block; /* Remove o espaço abaixo da imagem */
+	border-radius: 10px;
+	object-fit: cover;
+    scale: 150%;
+}
+.dish-image-dois {
+    max-width: 100px; /* Define a largura máxima da imagem */
+    min-height: 200px; /* Mantém a proporção da imagem */
+    display: block; /* Remove o espaço abaixo da imagem */
+	border-radius: 10px;
+	object-fit: cover;
+    scale: 150%;
+    object-position: -60px center;
+}
+
+
+
+
+
+
+.dish-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 2000px; /* Ajusta a largura conforme necessário */
+}
+
+.dish-title {
+    text-align: left;
+    margin-left: 20px;
+    line-height: 1.2;
+    color: #172E66;
+}
+
+.dish-description {
+    color: #434343;
+    text-align: left;
+    margin-left: 20px;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+
+.dish-price {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    align-content: left;
+}
+
+.dish-price .btn-default {
+   font-size: 1.2em;   /* Aumente o tamanho do texto */
+}
+
+@media screen and (max-width: 1170px) {
+    #dishes {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+   
+    
+}
+
+@media screen and (max-width: 600px) {
+    
+    
+    .dish {
+        width: calc(100% - 12px);
+        height: 180px;
+    }
+
+    .dish-title {
+        text-align: left;
+        margin-left: -2px;
+        font-size: 15px;
+        margin-top: px;
+    }
+
+    .dish a button.btn-default {
+        color: var(--color-primary-1);
+        scale: 60%;
+        margin-top: -20px;
+        
+    }
+
+   
+    
+    .dish-description {
+        color: #434343;
+        text-align: left;
+        margin-left: -2px;
+        
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+
+    
+
+    .dish-image {
+        max-width: 50px; /* Define a largura máxima da imagem */
+        min-height: 200px; /* Mantém a proporção da imagem */
+        display: block; /* Remove o espaço abaixo da imagem */
+        border-radius: 10px;
+        object-fit: cover;
+        margin-left: -10px;
+        
+    }
+
+    .dish-image-dois {
+        max-width: 50px; /* Define a largura máxima da imagem */
+        min-height: 200px; /* Mantém a proporção da imagem */
+        display: block; /* Remove o espaço abaixo da imagem */
+        border-radius: 10px;
+        object-fit: cover;
+        margin-left: -10px;
+        object-position: -100px center; /* Ajuste a posição da imagem como preferir */
+       
+    }
+
+   
+
+   
+    
+
+    #menu .section-subtitle {
+        text-align: center;
+    }
+} 
